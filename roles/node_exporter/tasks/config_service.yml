@@ -1,0 +1,15 @@
+
+
+# COPIAR ARQUIVO node_exporter.service PARA A PASTA /etc/systemd/system/
+- name: Copiando arquivo node_exporter.service para pasta /etc/systemd/system/
+  copy: src=node_exporter.service dest=/etc/systemd/system/node_exporter.service
+
+# START NO ARQUIVO node_exporter.service COM O SYSTEMCTL E TORNAR INICIALIZÁVEL 
+- name: Iniciando serviço do Node Exporter
+  systemd:
+    state: started
+    enabled: yes
+    daemon_reload: yes
+    name: node_exporter
+  when: results["stdout_lines"] == []
+

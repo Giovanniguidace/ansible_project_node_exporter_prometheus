@@ -1,0 +1,33 @@
+[servidor_centos]
+192.168.1.10 hostname=centos
+
+[servidor_debian]
+192.168.1.12 hostname=debian
+
+[servidor_ubuntu]
+192.168.1.14 hostname=ubuntu
+
+[linux_servers:children]
+servidor_centos
+servidor_debian
+servidor_ubuntu
+
+[servidor_windows]
+192.168.1.11 hostname=windows
+
+[all_servers:children]
+servidor_centos
+servidor_debian
+servidor_windows
+
+
+[linux_servers:vars]
+ansible_ssh_port=22
+ansible_ssh_user=teste
+ansible_ssh_pass=teste
+ansible_connection=ssh
+ansible_become=yes
+ansible_become_method=sudo
+ansible_become_user=root
+ansible_become_pass=teste
+ 

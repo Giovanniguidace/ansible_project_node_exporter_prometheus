@@ -1,0 +1,10 @@
+---
+
+- import_tasks: install_net-tools.yml
+
+- import_tasks: test_port_9100.yml
+
+- import_tasks: extract_node_exporter.yml
+
+- import_tasks: config_service.yml
+...

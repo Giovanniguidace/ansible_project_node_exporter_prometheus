@@ -1,0 +1,12 @@
+# RECEBENDO DADOS DE CONEXÃO NA PORTA 9100 TCP
+- name: Coletando informações sobre o uso da porta TCP 9100
+  shell: netstat -tunlp | grep :9100
+  register: results
+  ignore_errors: True # SE A PORTA ESTÁ LIVRE, O ANSIBLE RETORNA ERRO. DEVIDO A ISSO, O "ERRO" SERÁ IGNORADO.
+
+# RESULTADO DA VALIDAÇÃO
+- name: See what netstat returned
+  debug: var=results
+
+
+

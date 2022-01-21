@@ -1,0 +1,13 @@
+# INSTALAÇÃO DO NET-TOOLS PARA DISTROS EM DEBIAN
+- name: Instalando pacote NET-TOOLS para Distros em Debian
+  apt: 
+    name: net-tools
+  when: ansible_distribution_file_variety == "Debian"
+
+# INSTALAÇÃO DO NET-TOOLS PARA DISTROS EM RED HAT
+- name: Instalando pacote NET-TOOLS para Distros em RED HAT
+  yum:
+    name: net-tools
+  when: ansible_distribution_file_variety == "RedHat"
+
+ 
