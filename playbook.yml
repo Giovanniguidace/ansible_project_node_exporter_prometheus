@@ -3,7 +3,7 @@
 - name: Default Playbook - Starting Deploy
   hosts: linux_servers
   roles:
-          - common
+          - node_exporter
 
 
 ...
